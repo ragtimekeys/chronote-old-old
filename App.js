@@ -4,8 +4,7 @@
 
 
 import React from 'react';
-import { StyleSheet, Text, View} from 'react-native';
-import { AppRegistry, ScrollView, Image } from 'react-native';
+import { StyleSheet, Text, View, AppRegistry, ScrollView, Image} from 'react-native';
 import { Constants } from 'expo';
 
 export default class App extends React.Component {
