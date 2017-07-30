@@ -1,11 +1,25 @@
+/*
+  https://coolors.co/16bac5-285068-171d1c-ede6f2-5863f8
+*/
+
+
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View} from 'react-native';
+import { AppRegistry, ScrollView, Image } from 'react-native';
+import { Constants } from 'expo';
 
 export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
+
+        <Text style={styles.buttonText}>Chronote Tell Time</Text>
+        <View
+          style={{
+            borderBottomColor: 'black',
+            borderBottomWidth: 10
+          }}
+          />
       </View>
     );
   }
@@ -14,8 +28,14 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: '#285068'
+    //alignItems: 'center',
+    //justifyContent: 'center'
   },
+  buttonText: {
+    color: '#ede6f2',
+    textAlign: 'center',
+    justifyContent: 'center',
+    fontSize: 40
+  }
 });
