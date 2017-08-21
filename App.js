@@ -13,13 +13,17 @@ export default class App extends React.Component {
       <View style={styles.container}>
 
         <Text style={styles.buttonText}>Chronote Tell Time</Text>
+
         <View
           style={{
-            borderBottomColor: 'black',
+            borderBottomColor: 'white',
             borderBottomWidth: 10
           }}
           />
+        <Image source={require('./app/assets/img/clock.png')} style={styles.clock}/>
       </View>
+
+
     );
   }
 }
@@ -27,14 +31,22 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#285068'
-    //alignItems: 'center',
-    //justifyContent: 'center'
+    backgroundColor: 'black',
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   buttonText: {
     color: '#ede6f2',
     textAlign: 'center',
     justifyContent: 'center',
     fontSize: 40
-  }
+  },
+  clock: {
+
+
+    width: 285.96,
+    height: 285.96
+
+
+}
 });
