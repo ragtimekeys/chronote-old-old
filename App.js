@@ -12,7 +12,7 @@ export default class App extends React.Component {
     return (
       <View style={styles.container}>
 
-        <Text style={styles.buttonText}>Chronote Tell Time</Text>
+        <Text style={styles.buttonText}>Chronote</Text>
 
         <View
           style={{
