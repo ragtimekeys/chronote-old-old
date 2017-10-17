@@ -16,7 +16,7 @@ let colorScheme = colors.main;
 
 import { Constants } from 'expo';
 
-export default class Title extends React.Component {
+export default class Settings extends React.Component {
 
   render() {
     const containerStyle = {
@@ -24,21 +24,18 @@ export default class Title extends React.Component {
       paddingTop: 30,
       backgroundColor: '#b4afb8',
       alignItems: 'center',
-      justifyContent: 'flex-start'
+      justifyContent: 'center'
     };
-    const titleTextStyle= {
+    const settingsTextStyle= {
       color: colorScheme.fg,
       textAlign: 'center',
       justifyContent: 'center',
-      fontSize: 60
+      fontSize: 20
     };
     return (
       <View style={containerStyle}>
 
-        <Text style={titleTextStyle}>Chronote</Text>
-
-
-        <Clock/>
+        <Text style={settingsTextStyle}>Settings Options Menu</Text>
 
 
 
@@ -47,19 +44,4 @@ export default class Title extends React.Component {
 
     );
   }
-}
-
-
-class Clock extends React.Component {
-
-  render() {
-    const circleStyle = {
-
-    };
-    return (
-      <View style={circleStyle}/>
-    );
-  }
-
-
 }

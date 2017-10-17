@@ -17,13 +17,36 @@ import {
 
 import { Constants } from 'expo';
 import Title from 'components/Title.js';
+import Settings from 'components/Settings.js';
 
 export default class App extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      screen: "title",
+    };
+  }
+
 
 
 
 
   render() {
+
+    let currentScreen;
+    switch (this.state.screen) {
+    case "title":
+      currentScreen = <Title/>;
+      break;
+    case "settings":
+      currentScreen = <Settings/>;
+      break;
+    default:
+      currentScreen = <Title/>;
+      break;
+    }
+
 
 
     const containerStyle = {
@@ -37,23 +60,10 @@ export default class App extends React.Component {
 
     return (
       <View style={containerStyle}>
-        <Title/>
+        {currentScreen}
       </View>
 
 
     );
   }
 }
-
-const styles = StyleSheet.create({
-  buttonText: {
-    color: '#2c3130',
-    textAlign: 'center',
-    justifyContent: 'center',
-    fontSize: 40
-  },
-  clock: {
-    width: 285.96,
-    height: 285.96
-  }
-});
