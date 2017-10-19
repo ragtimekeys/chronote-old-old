@@ -6,7 +6,8 @@ import {
   View,
   AppRegistry,
   ScrollView,
-  Image
+  Image,
+  Button
 } from 'react-native';
 
 import {colors} from 'utils/colors.js';
@@ -17,6 +18,15 @@ let colorScheme = colors.main;
 import { Constants } from 'expo';
 
 export default class Title extends React.Component {
+  constructor(props) {
+    super();
+  }
+
+
+  gotoSettings = () => {
+    this.props.callbackChange();
+  }
+  //asdf
 
   render() {
     const containerStyle = {
@@ -32,11 +42,15 @@ export default class Title extends React.Component {
       justifyContent: 'center',
       fontSize: 60
     };
+
+
+
     return (
       <View style={containerStyle}>
 
         <Text style={titleTextStyle}>Chronote</Text>
 
+        <Button title="Settings" onPress={this.gotoSettings}/>
 
         <Clock/>
 
@@ -58,6 +72,7 @@ class Clock extends React.Component {
     };
     return (
       <View style={circleStyle}/>
+
     );
   }
 

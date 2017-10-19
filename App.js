@@ -6,7 +6,8 @@ import {
   View,
   AppRegistry,
   ScrollView,
-  Image
+  Image,
+  Button
 } from 'react-native';
 
 import { Constants } from 'expo';
@@ -24,6 +25,10 @@ export default class App extends React.Component {
 
 
 
+  callbackChange = () => {
+    this.setState({screen: "settings"});
+  }
+
 
 
   render() {
@@ -31,7 +36,7 @@ export default class App extends React.Component {
     let currentScreen;
     switch (this.state.screen) {
     case "title":
-      currentScreen = <Title/>;
+      currentScreen = <Title callbackChange={this.callbackChange}/>;
       break;
     case "settings":
       currentScreen = <Settings/>;
