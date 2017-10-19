@@ -1,9 +1,3 @@
-/*
-  https://coolors.co/16bac5-285068-171d1c-ede6f2-5863f8
-  https://coolors.co/3ec5ce-3b5f75-2c3130-b4afb8-252741
-*/
-
-
 import React from 'react';
 
 import {
