@@ -17,7 +17,15 @@ let colorScheme = colors.main;
 
 import { Constants } from 'expo';
 
+
+
+
+
 export default class Title extends React.Component {
+
+  static navigationOptions = {
+    title: 'Welcome'
+  };
   constructor(props) {
     super();
   }

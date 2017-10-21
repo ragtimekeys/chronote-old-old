@@ -13,15 +13,16 @@ import {
 import { Constants } from 'expo';
 import Title from 'components/Title.js';
 import Settings from 'components/Settings.js';
+import { TabNavigator } from 'react-navigation';
+
+
+const SimpleApp = TabNavigator({
+  title: { screen: Title },
+  settings: { screen: Settings },
+});
 
 export default class App extends React.Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      screen: "title",
-    };
-  }
 
 
 
@@ -32,19 +33,6 @@ export default class App extends React.Component {
 
 
   render() {
-
-    let currentScreen;
-    switch (this.state.screen) {
-    case "title":
-      currentScreen = <Title callbackChange={this.callbackChange}/>;
-      break;
-    case "settings":
-      currentScreen = <Settings/>;
-      break;
-    default:
-      currentScreen = <Title/>;
-      break;
-    }
 
 
 
@@ -58,9 +46,9 @@ export default class App extends React.Component {
     };
 
     return (
-      <View style={containerStyle}>
-        {currentScreen}
-      </View>
+      <SimpleApp/>
+
+
 
 
     );
