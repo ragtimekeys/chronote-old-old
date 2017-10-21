@@ -10,6 +10,10 @@ import {
   Button
 } from 'react-native';
 
+import { connect } from "react-redux";
+
+import {setColorScheme} from 'actions/colorActions.js';
+
 import {colors} from 'utils/colors.js';
 
 //Make this change depending on color scheme picked
@@ -20,7 +24,11 @@ import { Constants } from 'expo';
 
 
 
-
+@connect((store) => {
+  return {
+    colorScheme: store.colors.colorScheme
+  };
+})
 export default class Title extends React.Component {
 
   static navigationOptions = {
@@ -32,14 +40,16 @@ export default class Title extends React.Component {
 
 
   gotoSettings = () => {
-    this.props.callbackChange();
+    this.props.navigation.navigate('Settings');
+    this.props.dispatch(setColorScheme("oldBlue"));
+
   }
 
   render() {
     const containerStyle = {
       flex: 1,
       paddingTop: 30,
-      backgroundColor: '#b4afb8',
+      backgroundColor: this.props.colorScheme.bg,
       alignItems: 'center',
       justifyContent: 'flex-start'
     };
@@ -57,7 +67,7 @@ export default class Title extends React.Component {
 
         <Text style={titleTextStyle}>Chronote</Text>
 
-        <Button title="Goto Settings" onPress={() => this.props.navigation.navigate('Settings')}/>
+        <Button title="Goto Settings" onPress={this.gotoSettings}/>
 
         <Clock/>
 
