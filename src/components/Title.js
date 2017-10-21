@@ -24,7 +24,7 @@ import { Constants } from 'expo';
 export default class Title extends React.Component {
 
   static navigationOptions = {
-    title: 'Welcome'
+    title: 'Clock'
   };
   constructor(props) {
     super();
@@ -34,7 +34,6 @@ export default class Title extends React.Component {
   gotoSettings = () => {
     this.props.callbackChange();
   }
-  //asdf
 
   render() {
     const containerStyle = {
@@ -58,7 +57,7 @@ export default class Title extends React.Component {
 
         <Text style={titleTextStyle}>Chronote</Text>
 
-        <Button title="Settings" onPress={this.gotoSettings}/>
+        <Button title="Goto Settings" onPress={() => this.props.navigation.navigate('Settings')}/>
 
         <Clock/>
 
