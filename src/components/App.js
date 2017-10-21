@@ -19,8 +19,6 @@ const reducers = combineReducers({
 
 const store = createStore(reducers);
 
-console.log("store in App.js",store);
-
 export default class App extends React.Component {
 
   render() {

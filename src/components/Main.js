@@ -19,7 +19,6 @@ import Settings from 'components/Settings.js';
 
 
 @connect((store) => {
-  console.log("the store thing",store);
   return {
     colorScheme: store.colors.colorScheme
   };
@@ -28,8 +27,6 @@ export default class Main extends React.Component {
 
   render() {
 
-    this.props.dispatch(setColorScheme("main"));
-    console.log("this.props",this.props);
     const SimpleApp = TabNavigator({
       Title: {screen: Title},
       Settings: {screen: Settings},
@@ -38,7 +35,7 @@ export default class Main extends React.Component {
     }, {
       animationEnabled: true,
       tabBarOptions: {
-        activeTintColor: this.props.colorScheme.dt
+        activeTintColor: this.props.colorScheme.lt
       }
     });
 
