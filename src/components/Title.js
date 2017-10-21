@@ -12,15 +12,11 @@ import {
 
 import { connect } from "react-redux";
 
+//Actions
 import {setColorScheme} from 'actions/colorActions.js';
 
 import {colors} from 'utils/colors.js';
-
-//Make this change depending on color scheme picked
-let colorScheme = colors.main;
-
 import { Constants } from 'expo';
-
 
 
 
@@ -40,9 +36,9 @@ export default class Title extends React.Component {
 
 
   gotoSettings = () => {
+    //just a test
     this.props.navigation.navigate('Settings');
     this.props.dispatch(setColorScheme("oldBlue"));
-
   }
 
   render() {
@@ -54,7 +50,7 @@ export default class Title extends React.Component {
       justifyContent: 'flex-start'
     };
     const titleTextStyle= {
-      color: colorScheme.fg,
+      color: this.props.colorScheme.fg,
       textAlign: 'center',
       justifyContent: 'center',
       fontSize: 60
@@ -64,15 +60,9 @@ export default class Title extends React.Component {
 
     return (
       <View style={containerStyle}>
-
         <Text style={titleTextStyle}>Chronote</Text>
-
         <Button title="Goto Settings" onPress={this.gotoSettings}/>
-
         <Clock/>
-
-
-
       </View>
 
 

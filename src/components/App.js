@@ -6,7 +6,6 @@ import { TabNavigator } from 'react-navigation';
 import { Provider } from "react-redux";
 import { combineReducers, createStore } from "redux";
 
-
 //reducers
 import {colorReducer} from 'reducers/colorReducer';
 
@@ -16,7 +15,6 @@ import {colors} from 'utils/colors.js';
 const reducers = combineReducers({
   colors: colorReducer,
 });
-
 const store = createStore(reducers);
 
 export default class App extends React.Component {

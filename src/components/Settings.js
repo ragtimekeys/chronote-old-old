@@ -1,24 +1,11 @@
 import React from 'react';
 
 import {
-  StyleSheet,
   Text,
   View,
-  AppRegistry,
-  ScrollView,
-  Image
 } from 'react-native';
 
-import { connect } from "react-redux";
-
-import {colors} from 'utils/colors.js';
-
-
-
-//Make this change depending on color scheme picked
-let colorScheme = colors.main;
-
-import { Constants } from 'expo';
+import {connect} from "react-redux";
 
 @connect((store) => {
   return {
@@ -43,14 +30,8 @@ export default class Settings extends React.Component {
     };
     return (
       <View style={containerStyle}>
-
         <Text style={settingsTextStyle}>Settings Options Menu</Text>
-
-
-
       </View>
-
-
     );
   }
 }

@@ -1,21 +1,9 @@
 import React from 'react';
+import {TabNavigator} from 'react-navigation'
+import {connect} from 'react-redux'
 
-import { Constants } from 'expo';
-
-import { TabNavigator } from 'react-navigation';
-
-import { connect } from "react-redux";
-
-
-//reducers
-import {colorReducer} from 'reducers/colorReducer';
-
-//actions
-import {setColorScheme} from 'actions/colorActions';
-
-import Title from 'components/Title.js';
-import Settings from 'components/Settings.js';
-
+import Title from 'components/Title.js'
+import Settings from 'components/Settings.js'
 
 
 @connect((store) => {
