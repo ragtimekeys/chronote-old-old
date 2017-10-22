@@ -12,7 +12,11 @@ import {connect} from "react-redux";
     colorScheme: store.colors.colorScheme
   };
 })
-export default class Settings extends React.Component {
+export default class Schedule extends React.Component {
+
+  static navigationOptions = {
+    title: 'Schedule',
+  };
 
   render() {
     const containerStyle = {
@@ -30,7 +34,7 @@ export default class Settings extends React.Component {
     };
     return (
       <View style={containerStyle}>
-        <Text style={settingsTextStyle}>Settings Options Menu</Text>
+        <Text style={settingsTextStyle}>Schedule</Text>
       </View>
     );
   }
