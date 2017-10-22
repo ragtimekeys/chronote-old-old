@@ -25,10 +25,10 @@ import { Constants } from 'expo';
     colorScheme: store.colors.colorScheme
   };
 })
-export default class Settings extends React.Component {
+export default class Quiz extends React.Component {
 
   static navigationOptions = {
-    title: 'Settings'
+    title: 'Quiz'
   };
   constructor(props) {
     super();
@@ -60,7 +60,7 @@ export default class Settings extends React.Component {
 
     return (
       <View style={containerStyle}>
-        <Text style={titleTextStyle}>Settings Menu</Text>
+        <Text style={titleTextStyle}>Quiz Screen</Text>
       </View>
 
 

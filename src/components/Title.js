@@ -7,7 +7,8 @@ import {
   AppRegistry,
   ScrollView,
   Image,
-  Button
+  Button,
+  StatusBar,
 } from 'react-native';
 
 import { connect } from "react-redux";
@@ -37,9 +38,13 @@ export default class Title extends React.Component {
 
   gotoSettings = () => {
     //just a test
-    this.props.navigation.navigate('Settings');
+
     this.props.dispatch(setColorScheme("oldBlue"));
+    this.props.navigation.navigate('Settings');
+
+    //this.props.dispatch(setColorScheme("oldBlue"));
   }
+
 
   render() {
     const containerStyle = {
@@ -60,6 +65,7 @@ export default class Title extends React.Component {
 
     return (
       <View style={containerStyle}>
+
         <Text style={titleTextStyle}>Chronote</Text>
         <Button title="Goto Settings" onPress={this.gotoSettings}/>
         <Clock/>

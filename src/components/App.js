@@ -1,4 +1,5 @@
 import React from 'react';
+import {StatusBar} from 'react-native';
 
 import { Constants } from 'expo';
 
@@ -23,6 +24,7 @@ export default class App extends React.Component {
 
     return (
       <Provider store={store}>
+
         <Main/>
       </Provider>
     );
