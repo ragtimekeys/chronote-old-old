@@ -10,7 +10,7 @@ import {
   Button,
   StatusBar,
 } from 'react-native';
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import MaterialIcons from 'react-native-vector-icons/FontAwesome';
 
 import { connect } from "react-redux";
 
@@ -31,10 +31,10 @@ export default class Clock extends React.Component {
 
   static navigationOptions = {
     title: 'Clock',
-    drawerLabel: 'Inbox',
+    drawerLabel: 'Clock',
     drawerIcon: ({ tintColor }) => (
       <MaterialIcons
-        name="move-to-inbox"
+        name="clock-o"
         size={24}
         style={{ color: tintColor }}
       />
