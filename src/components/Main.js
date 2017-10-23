@@ -5,7 +5,7 @@ import {View, Platform, StatusBar} from 'react-native'
 
 import {Constants,Expo} from 'expo';
 
-import Title from 'components/Title.js'
+import Clock from 'components/Clock.js'
 import Schedule from 'components/Schedule.js'
 import Quiz from 'components/Quiz.js'
 
@@ -25,8 +25,8 @@ export default class Main extends React.Component {
 
   render() {
 
-    const TitleStack = StackNavigator({
-      Title: {screen: Title}
+    const ClockStack = StackNavigator({
+      Clock: {screen: Clock}
     });
     const ScheduleStack = StackNavigator({
       Schedule: {screen: Schedule}
@@ -44,7 +44,7 @@ export default class Main extends React.Component {
     let SimpleApp;
 
     const allScreens = {
-        Title: {screen: TitleStack},
+        Clock: {screen: ClockStack},
         Schedule: {screen: ScheduleStack},
         Sounds: {screen: SoundsStack},
         Quiz: {screen: QuizStack},
@@ -74,7 +74,16 @@ export default class Main extends React.Component {
         }
       });
     } else {
-      SimpleApp = DrawerNavigator(allScreens);
+      SimpleApp = DrawerNavigator(allScreens, {
+        contentOptions: {
+          inactiveTintColor: this.props.colorScheme.bg,
+          activeTintColor: this.props.colorScheme.lt,
+          labelStyle: {
+            fontSize: 9,
+          },
+        }
+
+      });
     }
 
 

@@ -10,6 +10,7 @@ import {
   Button,
   StatusBar,
 } from 'react-native';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 import { connect } from "react-redux";
 
@@ -26,10 +27,18 @@ import { Constants } from 'expo';
     colorScheme: store.colors.colorScheme
   };
 })
-export default class Title extends React.Component {
+export default class Clock extends React.Component {
 
   static navigationOptions = {
     title: 'Clock',
+    drawerLabel: 'Inbox',
+    drawerIcon: ({ tintColor }) => (
+      <MaterialIcons
+        name="move-to-inbox"
+        size={24}
+        style={{ color: tintColor }}
+      />
+    ),
   };
   constructor(props) {
     super();
@@ -68,7 +77,7 @@ export default class Title extends React.Component {
 
         <Text style={titleTextStyle}>Chronote</Text>
         <Button title="Goto Settings" onPress={this.gotoSettings}/>
-        <Clock/>
+        <ClockFace/>
       </View>
 
 
@@ -77,7 +86,7 @@ export default class Title extends React.Component {
 }
 
 
-class Clock extends React.Component {
+class ClockFace extends React.Component {
 
   render() {
     const circleStyle = {
