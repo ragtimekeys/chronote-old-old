@@ -1,5 +1,5 @@
 import React from 'react';
-import {TabNavigator, StackNavigator, TabBarTop, TabBarBottom} from 'react-navigation'
+import {TabNavigator, StackNavigator, DrawerNavigator, TabBarTop, TabBarBottom} from 'react-navigation'
 import {connect} from 'react-redux'
 import {View, Platform, StatusBar} from 'react-native'
 
@@ -41,32 +41,41 @@ export default class Main extends React.Component {
       Settings: {screen: Settings}
     });
 
-    const SimpleApp = TabNavigator({
-      Title: {screen: TitleStack},
-      Schedule: {screen: ScheduleStack},
-      Sounds: {screen: SoundsStack},
-      Quiz: {screen: QuizStack},
-      Settings: {screen: SettingsStack}
-    }, {
-      //tabBarComponent: TabBarTop,
-      animationEnabled: true,
-      //tabBarPosition: "top",
-      swipeEnabled: true,
-      tabBarOptions: {
-        inactiveTintColor: this.props.colorScheme.bg,
-        activeTintColor: this.props.colorScheme.lt,
-        labelStyle: {
-          fontSize: 9,
-        },
-        tabStyle: {
-          width: 80,
-          paddingTop: Platform.OS === 'ios' ? 0 : StatusBar.currentHeight
-        },
-        style: {
-          backgroundColor: this.props.colorScheme.bd
+    let SimpleApp;
+
+    const allScreens = {
+        Title: {screen: TitleStack},
+        Schedule: {screen: ScheduleStack},
+        Sounds: {screen: SoundsStack},
+        Quiz: {screen: QuizStack},
+        Settings: {screen: SettingsStack}
+    };
+
+
+    if (Platform.OS === 'ios') {
+      SimpleApp = TabNavigator(allScreens, {
+        //tabBarComponent: TabBarTop,
+        animationEnabled: true,
+        //tabBarPosition: "top",
+        swipeEnabled: true,
+        tabBarOptions: {
+          inactiveTintColor: this.props.colorScheme.bg,
+          activeTintColor: this.props.colorScheme.lt,
+          labelStyle: {
+            fontSize: 9,
+          },
+          tabStyle: {
+            width: 80,
+            paddingTop: Platform.OS === 'ios' ? 0 : StatusBar.currentHeight
+          },
+          style: {
+            backgroundColor: this.props.colorScheme.bd
+          }
         }
-      }
-    });
+      });
+    } else {
+      SimpleApp = DrawerNavigator(allScreens);
+    }
 
 
     return (

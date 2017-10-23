@@ -29,7 +29,7 @@ import { Constants } from 'expo';
 export default class Title extends React.Component {
 
   static navigationOptions = {
-    title: 'Clock'
+    title: 'Clock',
   };
   constructor(props) {
     super();
