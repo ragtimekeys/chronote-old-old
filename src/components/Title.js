@@ -13,6 +13,8 @@ import {
 
 import { connect } from "react-redux";
 
+import MaterialIcons from 'react-native-vector-icons/FontAwesome';
+
 //Actions
 import {setColorScheme} from 'actions/colorActions.js';
 
@@ -28,9 +30,17 @@ import { Constants } from 'expo';
 })
 export default class Title extends React.Component {
 
-  static navigationOptions = {
-    title: 'Clock',
+  static navigationOptions = function(props) {
+    const hamburgerStyle = {
+      left: 10,
+
+    };
+    return {
+      title: 'Clock',
+      headerLeft: <MaterialIcons onPress={() => props.navigation.navigate('DrawerOpen')} name="bars" style={hamburgerStyle} size={10}/>
+    }
   };
+
   constructor(props) {
     super();
   }
