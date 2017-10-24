@@ -9,6 +9,8 @@ import Clock from 'components/Clock.js'
 import Schedule from 'components/Schedule.js'
 import Quiz from 'components/Quiz.js'
 
+import MaterialIcons from 'react-native-vector-icons/FontAwesome';
+
 import Sounds from 'components/Sounds.js'
 //import Instrument from 'components/Instrument.js'
 //import Style from 'components/Style.js'

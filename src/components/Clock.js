@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 import {
   StyleSheet,
@@ -9,16 +9,17 @@ import {
   Image,
   Button,
   StatusBar,
-} from 'react-native';
-import MaterialIcons from 'react-native-vector-icons/FontAwesome';
+} from 'react-native'
 
-import { connect } from "react-redux";
+import MaterialIcons from 'react-native-vector-icons/FontAwesome'
+
+import { connect } from 'react-redux'
 
 //Actions
-import {setColorScheme} from 'actions/colorActions.js';
+import {setColorScheme} from 'actions/colorActions.js'
 
-import {colors} from 'utils/colors.js';
-import { Constants } from 'expo';
+import {colors} from 'utils/colors.js'
+import { Constants } from 'expo'
 
 
 
@@ -32,7 +33,7 @@ export default class Clock extends React.Component {
 
   static navigationOptions = function(props) {
     const hamburgerStyle = {
-
+      left: "50%"
     };
     return {
       title: 'Clock',
@@ -44,15 +45,15 @@ export default class Clock extends React.Component {
           style={{ color: tintColor }}
           />
       ),
-      headerLeft: <MaterialIcons onPress={() => props.navigation.navigate('DrawerOpen')} name="bars" style={hamburgerStyle} size={10}/>
-
+      headerLeft: <MaterialIcons onPress={() => props.navigation.navigate('DrawerOpen')} name="bars" style={hamburgerStyle} size={24}/>
     }
   }
+
+
 
   constructor(props) {
     super();
   }
-
 
   gotoSettings = () => {
     //just a test
