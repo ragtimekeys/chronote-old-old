@@ -10,10 +10,9 @@ import {
   Button,
   StatusBar,
 } from 'react-native';
+import MaterialIcons from 'react-native-vector-icons/FontAwesome';
 
 import { connect } from "react-redux";
-
-import MaterialIcons from 'react-native-vector-icons/FontAwesome';
 
 //Actions
 import {setColorScheme} from 'actions/colorActions.js';
@@ -28,18 +27,27 @@ import { Constants } from 'expo';
     colorScheme: store.colors.colorScheme
   };
 })
-export default class Title extends React.Component {
+export default class Clock extends React.Component {
+
 
   static navigationOptions = function(props) {
     const hamburgerStyle = {
-      left: 10,
 
     };
     return {
       title: 'Clock',
+      drawerLabel: 'Clock',
+      drawerIcon: ({ tintColor }) => (
+        <MaterialIcons
+          name="clock-o"
+          size={24}
+          style={{ color: tintColor }}
+          />
+      ),
       headerLeft: <MaterialIcons onPress={() => props.navigation.navigate('DrawerOpen')} name="bars" style={hamburgerStyle} size={10}/>
+
     }
-  };
+  }
 
   constructor(props) {
     super();
@@ -78,7 +86,7 @@ export default class Title extends React.Component {
 
         <Text style={titleTextStyle}>Chronote</Text>
         <Button title="Goto Settings" onPress={this.gotoSettings}/>
-        <Clock/>
+        <ClockFace/>
       </View>
 
 
@@ -87,7 +95,7 @@ export default class Title extends React.Component {
 }
 
 
-class Clock extends React.Component {
+class ClockFace extends React.Component {
 
   render() {
     const circleStyle = {
