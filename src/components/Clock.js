@@ -45,7 +45,13 @@ export default class Clock extends React.Component {
           style={{ color: tintColor }}
           />
       ),
-      headerLeft: <MaterialIcons onPress={() => props.navigation.navigate('DrawerOpen')} name="bars" style={hamburgerStyle} size={24}/>
+      headerLeft: <MaterialIcons onPress={() => props.navigation.navigate('DrawerOpen')} name="bars" style={hamburgerStyle} size={24}/>,
+      /*
+      headerTintColor: "blue",
+      headerStyle: {
+        backgroundColor: "blue"
+      }
+      */
     }
   }
 

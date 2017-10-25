@@ -18,6 +18,8 @@ import Sounds from 'components/Sounds.js'
 import Settings from 'components/Settings.js'
 
 
+
+
 @connect((store) => {
   return {
     colorScheme: store.colors.colorScheme
@@ -27,21 +29,47 @@ export default class Main extends React.Component {
 
   render() {
 
-    const ClockStack = StackNavigator({
-      Clock: {screen: Clock}
-    });
-    const ScheduleStack = StackNavigator({
-      Schedule: {screen: Schedule}
-    });
-    const SoundsStack = StackNavigator({
-      Sounds: {screen: Sounds}
-    });
-    const QuizStack = StackNavigator({
-      Quiz: {screen: Quiz}
-    });
-    const SettingsStack = StackNavigator({
-      Settings: {screen: Settings}
-    });
+    let cardObj = {
+
+      cardStyle: {
+        paddingTop: Platform.OS === 'ios' ? 0 : StatusBar.currentHeight,
+        backgroundColor: this.props.colorScheme.bd,
+        //color: this.props.colorScheme.lt
+      },
+      navigationOptions: {
+        headerStyle: {
+          backgroundColor: this.props.colorScheme.bd
+        },
+        headerTintColor: this.props.colorScheme.lt
+      }
+    }
+
+    const ClockStack = StackNavigator(
+      {
+        Clock: {screen: Clock},
+      }, cardObj
+    );
+    const ScheduleStack = StackNavigator(
+      {
+        Schedule: {screen: Schedule}
+      },cardObj
+    );
+    const SoundsStack = StackNavigator(
+      {
+        Sounds: {screen: Sounds}
+      },cardObj
+    );
+    const QuizStack = StackNavigator(
+      {
+        Quiz: {screen: Quiz}
+      },cardObj
+    );
+    const SettingsStack = StackNavigator(
+
+      {
+        Settings: {screen: Settings}
+      },cardObj
+    );
 
     let SimpleApp;
 
@@ -54,12 +82,12 @@ export default class Main extends React.Component {
     };
 
 
-    if (Platform.OS === 'ios') {
+    if (/*Platform.OS === 'ios'*/true) {
       SimpleApp = TabNavigator(allScreens, {
         //tabBarComponent: TabBarTop,
         animationEnabled: true,
-        //tabBarPosition: "top",
-        swipeEnabled: true,
+        tabBarPosition: "bottom",
+        //swipeEnabled: true,
         tabBarOptions: {
           inactiveTintColor: this.props.colorScheme.bg,
           activeTintColor: this.props.colorScheme.lt,
@@ -68,7 +96,7 @@ export default class Main extends React.Component {
           },
           tabStyle: {
             width: 80,
-            paddingTop: Platform.OS === 'ios' ? 0 : StatusBar.currentHeight
+            //paddingTop: Platform.OS === 'ios' ? 0 : StatusBar.currentHeight
           },
           style: {
             backgroundColor: this.props.colorScheme.bd
