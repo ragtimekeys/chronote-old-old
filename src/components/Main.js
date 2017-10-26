@@ -103,7 +103,9 @@ export default class Main extends React.Component {
           }
         }
       });
-    } else {
+    }
+    /*
+    else {
       SimpleApp = DrawerNavigator(allScreens, {
         contentOptions: {
           inactiveTintColor: this.props.colorScheme.bg,
@@ -115,11 +117,13 @@ export default class Main extends React.Component {
 
       });
     }
-
+    */
 
     return (
-      <SimpleApp/>
 
+      <SimpleApp>
+        <StatusBar barStyle="light-content"/>
+      </SimpleApp>
     );
   }
 }

@@ -45,7 +45,7 @@ export default class Clock extends React.Component {
           style={{ color: tintColor }}
           />
       ),
-      headerLeft: <MaterialIcons onPress={() => props.navigation.navigate('DrawerOpen')} name="bars" style={hamburgerStyle} size={24}/>,
+      //headerLeft: <MaterialIcons onPress={() => props.navigation.navigate('DrawerOpen')} name="bars" style={hamburgerStyle} size={24}/>,
       /*
       headerTintColor: "blue",
       headerStyle: {
@@ -90,7 +90,7 @@ export default class Clock extends React.Component {
 
     return (
       <View style={containerStyle}>
-
+        <StatusBar  barStyle="light-content" />
         <Text style={titleTextStyle}>Chronote</Text>
         <Button title="Goto Settings" onPress={this.gotoSettings}/>
         <ClockFace/>
