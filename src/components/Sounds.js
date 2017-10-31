@@ -1,4 +1,7 @@
 import React from 'react';
+import {TabNavigator, DrawerNavigator, TabBarTop, TabBarBottom} from 'react-navigation'
+import Instrument from 'components/Instrument.js'
+import Meaning from 'components/Meaning.js'
 
 import {
   StyleSheet,
@@ -56,11 +59,41 @@ export default class Sounds extends React.Component {
       fontSize: 60
     };
 
+    const allSoundsScreens = {
+      Instrument: {screen: Instrument},
+      Meaning: {screen: Meaning},
+    };
+
+    let SoundsTabNavigation = TabNavigator(allSoundsScreens, {
+      tabBarComponent: TabBarBottom,
+      animationEnabled: true,
+      tabBarPosition: "top",
+      swipeEnabled: true,
+      //lazyLoad: false,
+      //
+      tabBarOptions: {
+        inactiveTintColor: this.props.colorScheme.bg,
+        activeTintColor: this.props.colorScheme.lt,
+        labelStyle: {
+          fontSize: 9,
+        },
+        tabStyle: {
+          width: "50%",
+          height: 20,
+          //paddingTop: Platform.OS === 'ios' ? 0 : StatusBar.currentHeight
+        },
+        style: {
+          backgroundColor: this.props.colorScheme.bd
+        }
+      }
+    });
+
+
 
 
     return (
       <View style={containerStyle}>
-        <Text style={titleTextStyle}>Choose a Sound</Text>
+        <SoundsTabNavigation/>
       </View>
 
 

@@ -84,10 +84,11 @@ export default class Main extends React.Component {
 
     if (/*Platform.OS === 'ios'*/true) {
       SimpleApp = TabNavigator(allScreens, {
-        //tabBarComponent: TabBarTop,
+        //tabBarComponent: TabBarBottom,
         animationEnabled: true,
         tabBarPosition: "bottom",
-        //swipeEnabled: true,
+        swipeEnabled: false,
+        //lazyLoad: false,
         tabBarOptions: {
           inactiveTintColor: this.props.colorScheme.bg,
           activeTintColor: this.props.colorScheme.lt,
