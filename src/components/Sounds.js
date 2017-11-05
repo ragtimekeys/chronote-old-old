@@ -47,7 +47,7 @@ export default class Sounds extends React.Component {
   render() {
     const containerStyle = {
       flex: 1,
-      paddingTop: 30,
+      paddingTop: 0,
       backgroundColor: this.props.colorScheme.bg,
       alignItems: 'center',
       justifyContent: 'flex-start'
@@ -65,25 +65,39 @@ export default class Sounds extends React.Component {
     };
 
     let SoundsTabNavigation = TabNavigator(allSoundsScreens, {
-      tabBarComponent: TabBarBottom,
+      tabBarComponent: TabBarTop,
       animationEnabled: true,
       tabBarPosition: "top",
       swipeEnabled: true,
+      activeTintColor: this.props.colorScheme.lt,
       //lazyLoad: false,
       //
+      activeBackgroundColor: this.props.colorScheme.lt,
       tabBarOptions: {
         inactiveTintColor: this.props.colorScheme.bg,
         activeTintColor: this.props.colorScheme.lt,
+        upperCaseLabel: false,
+        //showIcon: false,
         labelStyle: {
-          fontSize: 9,
+          fontSize: 15,
+          //textAlign: "center"
         },
         tabStyle: {
-          width: "50%",
-          height: 20,
-          //paddingTop: Platform.OS === 'ios' ? 0 : StatusBar.currentHeight
+          //width: "50%",
+          //height: 20,
+          //paddingTop: 0,
+          //paddingBottom: 50,
+          //top: 0
+
+        },
+        indicatorStyle: {
+          backgroundColor: this.props.colorScheme.lt
         },
         style: {
-          backgroundColor: this.props.colorScheme.bd
+          backgroundColor: this.props.colorScheme.bd,
+          //top: 0
+          height: 50,
+          borderColor: "white"
         }
       }
     });
