@@ -1,5 +1,7 @@
 import React from 'react';
 
+import ModalDropdown from 'react-native-modal-dropdown';
+
 import {
   Text,
   View,
@@ -32,8 +34,18 @@ export default class Schedule extends React.Component {
       justifyContent: 'center',
       fontSize: 20
     };
+
+    const dropdownStyle = {
+      width: 100,
+      height: 100,
+      borderStyle: "solid",
+      backgroundColor: this.props.colorScheme.sdt,
+      borderColor: this.props.colorScheme.fg
+    };
+
     return (
       <View style={containerStyle}>
+        <ModalDropdown style={dropdownStyle} options={['option 1', 'option 2']}/>
         <Text style={settingsTextStyle}>Schedule</Text>
       </View>
     );

@@ -12,10 +12,10 @@ import {connect} from "react-redux";
     colorScheme: store.colors.colorScheme
   };
 })
-export default class Meaning extends React.Component {
+export default class Melody extends React.Component {
 
   static navigationOptions = {
-    title: 'Meaning',
+    title: 'Melody',
   };
 
   render() {
@@ -34,7 +34,7 @@ export default class Meaning extends React.Component {
     };
     return (
       <View style={containerStyle}>
-        <Text style={instrumentTextStyle}>Meaning</Text>
+        <Text style={instrumentTextStyle}>Melody</Text>
       </View>
     );
   }

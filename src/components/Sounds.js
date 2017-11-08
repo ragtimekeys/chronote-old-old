@@ -1,7 +1,7 @@
 import React from 'react';
 import {TabNavigator, DrawerNavigator, TabBarTop, TabBarBottom} from 'react-navigation'
 import Instrument from 'components/Instrument.js'
-import Meaning from 'components/Meaning.js'
+import Melody from 'components/Melody.js'
 
 import {
   StyleSheet,
@@ -61,17 +61,16 @@ export default class Sounds extends React.Component {
 
     const allSoundsScreens = {
       Instrument: {screen: Instrument},
-      Meaning: {screen: Meaning},
+      Melody: {screen: Melody}
     };
 
     let SoundsTabNavigation = TabNavigator(allSoundsScreens, {
-      tabBarComponent: TabBarTop,
+      tabBarComponent: TabBarBottom,
       animationEnabled: true,
       tabBarPosition: "top",
       swipeEnabled: true,
+      showLabel: false,
       activeTintColor: this.props.colorScheme.lt,
-      //lazyLoad: false,
-      //
       activeBackgroundColor: this.props.colorScheme.lt,
       tabBarOptions: {
         inactiveTintColor: this.props.colorScheme.bg,
@@ -80,7 +79,8 @@ export default class Sounds extends React.Component {
         //showIcon: false,
         labelStyle: {
           fontSize: 15,
-          //textAlign: "center"
+          paddingBottom: 15,
+          borderColor: this.props.colorScheme.bg
         },
         tabStyle: {
           //width: "50%",
@@ -88,7 +88,7 @@ export default class Sounds extends React.Component {
           //paddingTop: 0,
           //paddingBottom: 50,
           //top: 0
-
+          borderColor: this.props.colorScheme.bg
         },
         indicatorStyle: {
           backgroundColor: this.props.colorScheme.lt
@@ -107,7 +107,9 @@ export default class Sounds extends React.Component {
 
     return (
       <View style={containerStyle}>
+
         <SoundsTabNavigation/>
+
       </View>
 
 
