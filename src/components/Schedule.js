@@ -5,6 +5,7 @@ import ModalDropdown from 'react-native-modal-dropdown';
 import {
   Text,
   View,
+  Picker,
 } from 'react-native';
 
 import {connect} from "react-redux";
@@ -22,11 +23,12 @@ export default class Schedule extends React.Component {
 
   render() {
     const containerStyle = {
-      flex: 1,
+      display: "flex",
+      flexDirection: "column",
       paddingTop: 30,
       backgroundColor: this.props.colorScheme.bg,
       alignItems: 'center',
-      justifyContent: 'center'
+      justifyContent: 'center',
     };
     const settingsTextStyle= {
       color: this.props.colorScheme.fg,
@@ -36,17 +38,24 @@ export default class Schedule extends React.Component {
     };
 
     const dropdownStyle = {
-      width: 100,
-      height: 100,
-      borderStyle: "solid",
-      backgroundColor: this.props.colorScheme.sdt,
-      borderColor: this.props.colorScheme.fg
+      //width: 70,
+      //height: 20,
+      //left: 30,
+      //top: 30,
+      //borderStyle: "solid",
+      //borderWidth: 3,
+      backgroundColor: this.props.colorScheme.bg,
+      //borderColor: this.props.colorScheme.fg
     };
 
     return (
       <View style={containerStyle}>
-        <ModalDropdown style={dropdownStyle} options={['option 1', 'option 2']}/>
-        <Text style={settingsTextStyle}>Schedule</Text>
+        <Picker
+  selectedValue={"java"}
+  onValueChange={(itemValue, itemIndex) => this.setState({language: itemValue})}>
+  <Picker.Item label="Java" value="java" />
+  <Picker.Item label="JavaScript" value="js" />
+</Picker>
       </View>
     );
   }

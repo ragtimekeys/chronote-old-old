@@ -15,6 +15,7 @@ import {colors} from 'utils/colors.js';
 
 const reducers = combineReducers({
   colors: colorReducer,
+  schedule: scheduleReducer,
 });
 const store = createStore(reducers);
 
